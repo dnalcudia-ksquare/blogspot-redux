@@ -31,8 +31,6 @@ export default function Dashboard() {
   const error = useSelector(selectPostsError);
   const dispatch = useDispatch();
 
-  console.log(posts);
-
   const handleAddAPost = (value) => setShowForm(value);
 
   useEffect(() => {

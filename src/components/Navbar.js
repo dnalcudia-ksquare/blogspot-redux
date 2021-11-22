@@ -7,6 +7,10 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+//import { selectIsAuthenticated } from '../features/authentication/authSelectors';
+//import { useSelector } from 'react-redux';
+//import { setIsAuthenticated } from '../features/authentication/authSlice';
+//import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
@@ -33,11 +37,20 @@ const useStyles = makeStyles((theme) => ({
 function Navbar() {
   const classes = useStyles();
   const history = useHistory();
+  //const isAuthenticated = useSelector(selectIsAuthenticated);
+  //const dispatch = useDispatch();
 
   const handleLogout = () => {
     localStorage.setItem('authorized', '0');
     history.go(0);
   };
+
+  /*
+  const handleLogout = () => {
+    dispatch(setIsAuthenticated(false));
+    history.go(0);
+  };
+  */
 
   return (
     <AppBar position='static'>

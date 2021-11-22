@@ -12,19 +12,24 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+//import { useDispatch, useSelector } from 'react-redux';
+//import { login } from '../features/authentication/authSlice';
+//import { selectIsAuthenticated } from '../features/authentication/authSelectors';
 
 const theme = createTheme();
 
 export default function Login() {
   const history = useHistory();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  //const dispatch = useDispatch();
+  //let isAuthenticated = useSelector(selectIsAuthenticated);
 
   const handleLoginEmail = (event) => {
     event.preventDefault();
 
     if (email !== 'example@example.com' || password !== 'password') {
+      console.log('hola');
       return;
     }
     localStorage.setItem('authorized', '1');
@@ -32,6 +37,19 @@ export default function Login() {
     history.go(0);
   };
 
+  /*  dispatch(
+      login({
+        email: email,
+        password: password,
+      })
+    );
+  };
+
+  if (isAuthenticated) {
+    //history.go('/dashboard');
+    //history.go(0);
+  }
+*/
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
